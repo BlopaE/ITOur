@@ -1,0 +1,1034 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Detalles">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="59dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="Mapa"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="654dp" />
+
+    <ImageButton
+        android:id="@+id/regresoMap"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:background="@color/ic_launcher_background"
+        android:contentDescription="@string/des"
+        android:onClick="Mapa"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintVertical_bias="0.6"
+        app:srcCompat="@drawable/mapa" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="369dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/scrollview"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:layout_constraintVertical_bias="0.31">
+
+        <LinearLayout
+            android:id="@+id/dentro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="0">
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:hapticFeedbackEnabled="true"
+                    android:onClick="Click"
+                    android:scaleType="centerInside"
+                    android:tag="0"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="1">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerInside"
+                    android:tag="1"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="2">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="2"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="3">
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="3"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="4">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="4"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="5">
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="5"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="6">
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="6"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="7">
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="7"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="8">
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="8"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="9">
+
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="9"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="10">
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="10"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="11">
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="11"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="12">
+
+                <ImageView
+                    android:id="@+id/imageView13"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="12"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="13">
+
+                <ImageView
+                    android:id="@+id/imageView14"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="13"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="14">
+
+                <ImageView
+                    android:id="@+id/imageView15"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="14"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView15"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="15">
+
+                <ImageView
+                    android:id="@+id/imageView16"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="15"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="16">
+
+                <ImageView
+                    android:id="@+id/imageView17"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="16"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView17"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="17">
+
+                <ImageView
+                    android:id="@+id/imageView18"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="17"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="18">
+
+                <ImageView
+                    android:id="@+id/imageView19"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="18"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="19">
+
+                <ImageView
+                    android:id="@+id/imageView20"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="19"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="20">
+
+                <ImageView
+                    android:id="@+id/imageView21"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="20"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="21">
+
+                <ImageView
+                    android:id="@+id/imageView22"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="21"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="22">
+
+                <ImageView
+                    android:id="@+id/imageView23"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="22"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="23">
+
+                <ImageView
+                    android:id="@+id/imageView24"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="23"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView24"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="24">
+
+                <ImageView
+                    android:id="@+id/imageView25"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="24"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView25"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="25">
+
+                <ImageView
+                    android:id="@+id/imageView26"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="25"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView26"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape"
+                android:onClick="Click"
+                android:orientation="horizontal"
+                android:tag="26">
+
+                <ImageView
+                    android:id="@+id/imageView27"
+                    android:layout_width="60dp"
+                    android:layout_height="114dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/busquedda"
+                    android:onClick="Click"
+                    android:scaleType="centerCrop"
+                    android:tag="26"
+                    app:srcCompat="@drawable/centrocomp" />
+
+                <TextView
+                    android:id="@+id/textView27"
+                    android:layout_width="60dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:translationY="30dp" />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="378dp" />
+
+    <LinearLayout
+        android:layout_width="364dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/shape"
+        android:backgroundTint="@color/purple_500"
+        android:clickable="false"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:layout_constraintVertical_bias="0.645">
+
+        <ImageView
+            android:id="@+id/imagenCambiante"
+            android:layout_width="match_parent"
+            android:layout_height="145dp"
+            android:scaleType="centerInside"
+            android:translationY="10dp"
+            app:srcCompat="@drawable/centrocomp" />
+
+        <TextView
+            android:id="@+id/Titulo1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/bienvenida"
+            android:textAlignment="center"
+            android:textColor="?android:textColorPrimary"
+            android:textSize="24sp"
+            android:translationY="20dp" />
+
+        <TextView
+            android:id="@+id/descripcionId"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/bienvenida2"
+            android:textAlignment="center"
+            android:textColor="?android:textColorPrimary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:translationY="35dp" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="428dp"
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/TituloInterfaz"
+            android:textColor="?android:textColorPrimary"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:translationY="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.105"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
