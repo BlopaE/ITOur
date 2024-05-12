@@ -105,6 +105,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Intent intent = new Intent(getApplicationContext(),Resultados.class);
         startActivity(intent);
     }
+
+    //Metodo para abrir activity de eventos
+    public void Eventos(View view){
+        Intent intent = new Intent(getApplicationContext(), Eventos.class);
+        startActivity(intent);
+    }
+
     @SuppressLint("MissingPermission")
     @Override
     public void onMapReady(GoogleMap googleMap) {

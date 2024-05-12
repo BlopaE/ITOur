@@ -17,6 +17,9 @@
         android:theme="@style/Theme.ITOur_Release"
         tools:targetApi="34">
         <activity
+            android:name=".Eventos"
+            android:exported="false" />
+        <activity
             android:name=".Resultados"
             android:exported="false" />
         <activity
