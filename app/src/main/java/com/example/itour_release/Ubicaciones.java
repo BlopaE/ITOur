@@ -2,15 +2,8 @@ package com.example.itour_release;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,12 +11,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.material.search.SearchView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Detalles extends AppCompatActivity {
+public class Ubicaciones extends AppCompatActivity {
 
 
     List<Edificios> edificios = new ArrayList<>();
@@ -39,8 +31,6 @@ public class Detalles extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalles);
-
-
         LatLng EA = new LatLng(17.078413,-96.745638);
         LatLng EB = new LatLng(17.078253,-96.744824);
         LatLng EC = new LatLng(17.0780357,-96.744878);
@@ -107,6 +97,7 @@ public class Detalles extends AppCompatActivity {
             idDrawable = getResources().getIdentifier(drawable, "drawable", getPackageName());
             try{
                 imagenview.setImageDrawable(getResources().getDrawable(idDrawable));
+                imagenview.setClipToOutline(true);
 
             textViewID = "textView" + (i+1);
 
@@ -133,33 +124,26 @@ public class Detalles extends AppCompatActivity {
         finish();
     }
 
-    public void iniciarMenu(View view){
-
-
-    }
 
     public void Click(View view){
+        //Función para abrir la interfaz de detalles de la
+        //Intent intent = new Intent(getApplicationContext(), Detalles.class);
+        //startActivity(intent);
 
-        TextView titulo = findViewById(R.id.Titulo1);
-        TextView descripcion = findViewById(R.id.descripcionId);
-
-        ImageView imagenview= findViewById(R.id.imagenCambiante);
-
-
-
-        for(int i=0; i<edificios.size();i++){
-            if(view.getTag().equals(""+i)){
-                drawable = ""+edificios.get(i).getRuta();
-                idDrawable = getResources().getIdentifier(drawable, "drawable", getPackageName());
-                titulo.setText(edificios.get(i).getNombre());
-                descripcion.setText(edificios.get(i).getDescripcion());
-                try {
-                    imagenview.setImageDrawable(getResources().getDrawable(idDrawable));
-                }catch (Exception e){
-                    Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            }
-        }
+//        //ACTUALIZAR IMAGEN CAMBIANTE Y DESCRIPCIONES
+//        for(int i=0; i<edificios.size();i++){
+//            if(view.getTag().equals(""+i)){
+//                drawable = ""+edificios.get(i).getRuta();
+//                idDrawable = getResources().getIdentifier(drawable, "drawable", getPackageName());
+//                //titulo.setText(edificios.get(i).getNombre());
+//                //descripcion.setText(edificios.get(i).getDescripcion());
+//                try {
+//                    imagenview.setImageDrawable(getResources().getDrawable(idDrawable));
+//                }catch (Exception e){
+//                    Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        }
     }
 
 

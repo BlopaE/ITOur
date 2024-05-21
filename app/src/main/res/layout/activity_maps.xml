@@ -25,10 +25,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:onClick="Buscar"
+            android:onClick="Lista"
             android:src="@drawable/lupe"
-            app:backgroundTint="#FFFFFF"
-            app:backgroundTintMode="add"
+            app:backgroundTintMode="screen"
             app:ensureMinTouchTargetSize="true"
             app:fabCustomSize="75dp"
             app:fabSize="auto"
@@ -38,7 +37,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.95"
-            app:maxImageSize="45dp" />
+            app:maxImageSize="45dp"
+            app:rippleColor="@color/purple_200" />
 
         <!-- BOTON PARA ABRIR EL APARTADO DE EVENTOS -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -93,6 +93,7 @@
             android:src="@drawable/itour_logito"
             android:translationX="35dp"
             android:translationY="-25dp"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -107,12 +108,26 @@
             android:scaleX="0.7"
             android:scaleY="0.7"
             android:src="@drawable/compass"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/button_cal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Calendario"
+            android:text="Calendario"
+            app:layout_constraintBottom_toTopOf="@+id/btn_eventos"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.782"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/map"
+            app:layout_constraintVertical_bias="0.043" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

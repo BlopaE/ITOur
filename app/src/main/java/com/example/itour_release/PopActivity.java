@@ -14,8 +14,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.gms.maps.model.LatLng;
 
-import java.util.List;
-
 
 public class PopActivity extends Activity {
     ImageButton btn_Close;
@@ -51,7 +49,7 @@ public class PopActivity extends Activity {
         btn_Informacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),Detalles.class);
+                Intent intent = new Intent(getApplicationContext(), Ubicaciones.class);
                 startActivity(intent);
             }
         });
