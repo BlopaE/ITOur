@@ -49,12 +49,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private final float DEFAULT_ZOOM = 15;
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
-    String nDestino;
-    LatLng savedLocation;
     FusedLocationProviderClient fusedLocationProviderClient, mFusedLocationProviderClient;
     Location currentLocation, mLastKnownLocation;
 
-    SearchView searchView;
     LocationCallback locationCallback;
     FloatingActionButton fAB;
     MyApplication aplicacion;
@@ -138,7 +135,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         List<LocationItem> locationList = LocationItemList.getLocationList();
         for (LocationItem item : locationList) {
             addMarker(mMap, item.getPosition(), item.getTitle(), item.getIconResourceId());
-
         }
 
 
@@ -157,16 +153,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.addMarker(markerOptions).showInfoWindow();
         }
 
+
+
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(@NonNull Marker marker) {
-                aplicacion.setMiDestino(marker.getPosition());
-                aplicacion.setnDestino(marker.getTitle());
-                Intent intent = new Intent(getApplicationContext(),PopActivity.class);
-                startActivity(intent);
+                // Obtener la información de la ubicación desde LocationItemList
+                LocationItem locationItem = getLocationItemFromList(marker.getPosition(), marker.getTitle());
+
+                if (locationItem != null) {
+                    // Crear un intent y adjuntar la información de la ubicación
+                    Intent intent = new Intent(getApplicationContext(), PopActivity.class);
+                    intent.putExtra("locationItem", locationItem);
+                    startActivity(intent);
+                }
+
                 return false;
             }
         });
+
         fAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -221,6 +226,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
     }
+    private LocationItem getLocationItemFromList(LatLng position, String title) {
+        List<LocationItem> locationList = LocationItemList.getLocationList();
+        for (LocationItem item : locationList) {
+            if (item.getPosition().equals(position) && item.getTitle().equals(title)) {
+                return item;
+            }
+        }
+        return null;
+    }
 
     @SuppressLint("MissingPermission")
     private void getDeviceLocation() {
@@ -258,4 +272,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     }
                 });
     }
+
+
 }

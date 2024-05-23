@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -23,52 +24,75 @@ public class PopActivity extends Activity {
     private TextView tv_Name;
     private TextView tv_Subtitle;
     private String nLocacion;
+    private ImageView ivEdi;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pop);
-        constraintLayout=findViewById(R.id.disposicion);
+        constraintLayout = findViewById(R.id.disposicion);
         MyApplication myApplication = (MyApplication) getApplicationContext();
         savedLocation = myApplication.getMiDestino();
-        nLocacion=myApplication.getnDestino();
+        nLocacion = myApplication.getnDestino();
 
-        btn_Close=(android.widget.ImageButton)findViewById(R.id.btn_cerrar);
-        btn_Informacion=findViewById(R.id.btn_info);
-        tv_Name=findViewById(R.id.tv_Nombre);
-        tv_Subtitle=findViewById(R.id.tv_subititulo);
+        btn_Close = (android.widget.ImageButton) findViewById(R.id.btn_cerrar);
+        btn_Informacion = findViewById(R.id.btn_info);
+        tv_Name = findViewById(R.id.tv_Nombre);
+        tv_Subtitle = findViewById(R.id.tv_subititulo);
+        ivEdi = findViewById(R.id.imageView2);
 
-        btn_Close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-        
-        btn_Informacion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Ubicaciones.class);
-                startActivity(intent);
-            }
-        });
+        // Obtener la información de la ubicación del intent
+        LocationItem locationItem = (LocationItem) getIntent().getParcelableExtra("locationItem");
 
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-
-        int width= displayMetrics.widthPixels;
-        int height=displayMetrics.widthPixels;
-
-        getWindow().setLayout((int)(width*.9),(int)(height*0.9));
-        WindowManager.LayoutParams params = getWindow().getAttributes();
-        params.x=0;
-        params.y=525;
-        getWindow().setAttributes(params);
-
-        tv_Name.setText(nLocacion);
-        tv_Subtitle.setText("Coord:("+savedLocation.latitude+","+savedLocation.longitude+")");
+        // Verificar que la información no sea nula
+        if (locationItem != null) {
+            // Usar la información de la ubicación
+            savedLocation = locationItem.getPosition();
+            nLocacion = locationItem.getTitle();
+            String locationType = locationItem.getLocationType();
+            String description = locationItem.getDescription();
+            String rutaImagen = locationItem.getRutaImagen();
 
 
+            btn_Close.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
+
+            btn_Informacion.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Crear un intent para abrir la siguiente actividad
+                    Intent intent = new Intent(getApplicationContext(), InformacionActivity.class);
+
+                    // Poner el objeto LocationItem en el intent
+                    intent.putExtra("locationItem", locationItem);
+
+                    // Iniciar la nueva actividad
+                    startActivity(intent);
+                }
+            });
+
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+
+            int width = displayMetrics.widthPixels;
+            int height = displayMetrics.widthPixels;
+
+            getWindow().setLayout((int) (width * .9), (int) (height * 0.9));
+            WindowManager.LayoutParams params = getWindow().getAttributes();
+            params.x = 0;
+            params.y = 525;
+            getWindow().setAttributes(params);
+
+            tv_Name.setText(nLocacion);
+            tv_Subtitle.setText("Coord:(" + savedLocation.latitude + "," + savedLocation.longitude + ")");
+            int idDrawable = getResources().getIdentifier(rutaImagen, "drawable", getPackageName());
+            ivEdi.setImageResource(idDrawable);
+
+        }
     }
 }
