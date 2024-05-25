@@ -15,7 +15,7 @@
     <string name="title_activity_main2">MainActivity2</string>
 
     <string name="butonAbrirInterfaz">Dale Click Aqui wei</string>
-    <string name="TituloInterfaz">Detalles</string>
+    <string name="TituloInterfaz">Ubicaciones</string>
     <string name="regresarMap">Regresar</string>
     <string name="busquedda">Busqueda</string>
     <string name="BotonMapa">Regresar Mapa.</string>
@@ -24,6 +24,9 @@
     <string name="scrollview">Scroll View</string>
     <string name="opciones">Opcion</string>
     <string name="prueba">Prueba</string>
-    <string name="bienvenida">Información Adicional</string>
+    <string name="bienvenida">Título</string>
     <string name="bienvenida2">Da un toque en la imagen de la ubicación que desee saber información</string>
+
+    <string name="back"><![CDATA[<-]]></string>
+    <string name="forward"><![CDATA[->]]></string>
 </resources>
