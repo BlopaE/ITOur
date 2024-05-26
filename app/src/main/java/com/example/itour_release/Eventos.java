@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -37,5 +38,8 @@ public class Eventos extends AppCompatActivity {
         e.add(new Evento("Fin de cursos", "31 de mayo", ""));
 
         return e;
+    }
+    public void goBack(View view) {
+        finish(); // Finaliza la actividad actual y regresa a la actividad anterior
     }
 }
