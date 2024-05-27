@@ -6,8 +6,8 @@
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorSecondary">@color/purple_500</item>
+        <item name="colorSecondaryVariant">@color/purple_500</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
@@ -33,8 +33,9 @@
     <style name="AppTheme.PopMe" parent="Theme.AppCompat.DayNight.Dialog.Alert">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
-        <item name="dialogCornerRadius">15dp</item>
+        <item name="dialogCornerRadius">50px</item>
         <item name="android:background">@color/cardview_light_background</item>
+
 
     </style>
 

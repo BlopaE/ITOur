@@ -10,13 +10,12 @@ import android.content.res.Configuration;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
@@ -31,10 +30,13 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CircleOptions;
+import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -45,19 +47,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+
+    private static final int REQUEST_CODE_UBICACIONES = 1;
     private View mapView;
     private final float DEFAULT_ZOOM = 15;
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
-    String nDestino;
-    LatLng savedLocation;
+    private LocationItem destino;
     FusedLocationProviderClient fusedLocationProviderClient, mFusedLocationProviderClient;
     Location currentLocation, mLastKnownLocation;
 
-    SearchView searchView;
     LocationCallback locationCallback;
     FloatingActionButton fAB;
     MyApplication aplicacion;
+
+    private List<Marker> markerList = new ArrayList<>();
+
 
 
     @Override
@@ -66,11 +71,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         fAB = findViewById(R.id.btn_ito);
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         aplicacion = (MyApplication) getApplicationContext();
+
+        // Inicializar el FusedLocationProviderClient
 
     }
 
@@ -101,9 +109,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         }
     }
-    public void Buscar(View view){
-        Intent intent = new Intent(getApplicationContext(),Resultados.class);
-        startActivity(intent);
+    public void Lista(View view){
+        Intent intent = new Intent(getApplicationContext(), Ubicaciones.class);
+        startActivityForResult(intent, REQUEST_CODE_UBICACIONES);
     }
 
     //Metodo para abrir activity de eventos
@@ -112,170 +120,37 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         startActivity(intent);
     }
 
+    public void Calendario(View view){
+        Intent intent = new Intent(getApplicationContext(), Calendar_Activity.class);
+        startActivity(intent);
+    }
+    private Marker addMarker(GoogleMap map, LatLng position, String title, int iconResourceId) {
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.position(position);
+        markerOptions.title(title);
+        markerOptions.icon(BitmapDescriptorFactory.fromResource(iconResourceId));
+        Marker marker = map.addMarker(markerOptions);
+        markerList.add(marker);
+        return marker;
+    }
+
+
     @SuppressLint("MissingPermission")
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
-        LatLng EA = new LatLng(17.078413,-96.745638);
-        LatLng EB = new LatLng(17.078253,-96.744824);
-        LatLng EC = new LatLng(17.0780357,-96.744878);
-        LatLng ED= new LatLng(17.077242, -96.743530);
-        LatLng EE = new LatLng(17.076978, -96.744072);
-        LatLng EElec = new LatLng(17.078679,-96.743775);
-        LatLng EF = new LatLng(17.076693, -96.744116);
-        LatLng EG = new LatLng(17.076471, -96.744178);
-        LatLng EI=new LatLng(17.0760628,-96.7447535);
-        LatLng EJ = new LatLng(17.0762137,-96.74452380);
-        LatLng EL = new LatLng(17.078134,-96.744110);
-        LatLng Gym =new LatLng(17.077692,-96.743639);
-        LatLng Bib = new LatLng(17.077711,-96.744199);
-        LatLng LabE1= new LatLng(17.079001, -96.744982);
-        LatLng LabS2 = new LatLng(17.079258, -96.744811);
-        LatLng LabQ3= new LatLng(17.078576,-96.744589);
-        LatLng LabM4= new LatLng(17.078721,-96.744533);
-        LatLng LabQ5 = new LatLng(17.077990,-96.744427);
-        LatLng LabC6 = new LatLng(17.078653,-96.7443106);
-        LatLng Lab7CC= new LatLng(17.079082,-96.744324);
-        LatLng LabQ8 = new LatLng(17.079408, -96.743909);
-        LatLng LabE9 = new LatLng(17.078784,-96.743807);
-        LatLng STitulacion= new LatLng(17.078233,-96.745259);
-        LatLng cafe_izq= new LatLng(17.077187, -96.744013);
-        LatLng P1= new LatLng(17.077804, -96.746049);
-        LatLng P2= new LatLng(17.075941, -96.744244);
-        LatLng P3= new LatLng(17.076591, -96.745322);
-        LatLng cafe_der= new LatLng(17.077209,-96.7440196);
-
         mMap = googleMap;
-        MarkerOptions mO2 = new MarkerOptions();
-        /*
-        Marker marker = mMap.addMarker(new MarkerOptions().position(EA).title("Edificio A"));
-        marker.setVisible(true);
-        marker.showInfoWindow();
-        */
 
-        mO2.position(EA);
-        mO2.title("Edificio A");
-        mO2.icon(BitmapDescriptorFactory.fromResource(R.drawable.school));
-        mMap.addMarker(mO2);
-
-        mO2.position(EB);
-        mO2.title("Edificio B");
-        mMap.addMarker(mO2);
-
-        mO2.position(EC);
-        mO2.title("Edificio C");
-        mMap.addMarker(mO2);
-
-        mO2.position(ED);
-        mO2.title("Edificio D");
-        mMap.addMarker(mO2);
-
-        mO2.position(EE);
-        mO2.title("Edificio E");
-        mMap.addMarker(mO2);
-
-        mO2.position(EElec);
-        mO2.title("Edificio Electronica");
-        mMap.addMarker(mO2);
-
-        mO2.position(EF);
-        mO2.title("Edificio F");
-        mMap.addMarker(mO2);
-
-        mO2.position(EG);
-        mO2.title("Edificio G");
-        mMap.addMarker(mO2);
-
-        mO2.position(EI);
-        mO2.title("Edificio I");
-        mMap.addMarker(mO2);
+        List<LocationItem> locationList = LocationItemList.getLocationList();
+        for (LocationItem item : locationList) {
+            addMarker(mMap, item.getPosition(), item.getTitle(), item.getIconResourceId());
+        }
 
 
-        mO2.position(EJ);
-        mO2.title("Edificio J");
-        mMap.addMarker(mO2);
-
-        mO2.position(EL);
-        mO2.title("Edificio L");
-        mMap.addMarker(mO2);
-
-        //OTROS DEPARTAMENTOS:
-        mO2.position(Gym);
-        mO2.title("Gimnacio ITO");
-        mO2.icon(BitmapDescriptorFactory.fromResource(R.drawable.dumbbell));
-        mMap.addMarker(mO2);
-
-        mO2.position(Bib);
-        mO2.title("Centro de Información - Biblioteca");
-        mO2.icon(BitmapDescriptorFactory.fromResource(R.drawable.book));
-        mMap.addMarker(mO2);
-
-        mO2.position(LabE1);
-        mO2.title("Laboratorio 1: Ing.Electronica");
-        mO2.icon(BitmapDescriptorFactory.fromResource(R.drawable.tube));
-        mMap.addMarker(mO2);
-
-        mO2.position(LabS2);
-        mO2.title("Laboratorio 2: Simulación");
-        mO2.icon(BitmapDescriptorFactory.fromResource(R.drawable.pc));
-        mMap.addMarker(mO2);
-
-        mO2.position(LabQ3);
-        mO2.title("Laboratorio 3: Ing. Quimica");
-        mO2.icon(BitmapDescriptorFactory.fromResource(R.drawable.tube));
-        mMap.addMarker(mO2);
-
-        mO2.position(LabM4);
-        mO2.title("Laboratorio 4: Ing. Mecánica");
-        mMap.addMarker(mO2);
-
-        mO2.position(LabQ5);
-        mO2.title("Laboratorio 5: Ing. Quimica");
-        mMap.addMarker(mO2);
-
-        mO2.position(LabC6);
-        mO2.title("Laboratorio 6: Ing. Civil");
-        mMap.addMarker(mO2);
-
-        mO2.position(Lab7CC);
-        mO2.title("Centro de Cómputo: Laboratorio 7");
-        mO2.icon(BitmapDescriptorFactory.fromResource(R.drawable.pc));
-        mMap.addMarker(mO2);
-
-        mO2.position(LabQ8);
-        mO2.title("Laboratorio 8: Ing. Química");
-        mO2.icon(BitmapDescriptorFactory.fromResource(R.drawable.tube));
-        mMap.addMarker(mO2);
-
-        mO2.position(LabE9);
-        mO2.title("Laboratorio 9: Ing. Electrónica");
-        mMap.addMarker(mO2);
-
-        mO2.position(STitulacion);
-        mO2.title("Sala de Titulación");
-        mO2.icon(BitmapDescriptorFactory.fromResource(R.drawable.hat));
-        mMap.addMarker(mO2);
-
-        mO2.position(cafe_izq);
-        mO2.title("Cafeteria");
-        mO2.icon(BitmapDescriptorFactory.fromResource(R.drawable.cafe));
-        mMap.addMarker(mO2);
-
-        mO2.position(P1);
-        mO2.title("Estacionamiento 1");
-        mO2.icon(BitmapDescriptorFactory.fromResource(R.drawable.park));
-        mMap.addMarker(mO2);
-
-        mO2.position(P2);
-        mO2.title("Estacionamiento 2");
-        mMap.addMarker(mO2);
-
-        mO2.position(P3);
-        mO2.title("Estacionamiento 1");
-        mMap.addMarker(mO2);
+        // Agrega los demás marcadores aquí
 
         if(aplicacion.getMiDestino().longitude==0.0){
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Bib, 18.0f));
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(17.077711, -96.744199), 18.0f));
 
         }else{
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(aplicacion.getMiDestino(), 19.0f));
@@ -287,20 +162,29 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.addMarker(markerOptions).showInfoWindow();
         }
 
+
+
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(@NonNull Marker marker) {
-                aplicacion.setMiDestino(marker.getPosition());
-                aplicacion.setnDestino(marker.getTitle());
-                Intent intent = new Intent(getApplicationContext(),PopActivity.class);
-                startActivity(intent);
+                // Obtener la información de la ubicación desde LocationItemList
+                LocationItem locationItem = getLocationItemFromList(marker.getPosition(), marker.getTitle());
+
+                if (locationItem != null) {
+                    // Crear un intent y adjuntar la información de la ubicación
+                    Intent intent = new Intent(getApplicationContext(), PopActivity.class);
+                    intent.putExtra("locationItem", locationItem);
+                    startActivityForResult(intent, 1);
+                }
+
                 return false;
             }
         });
+
         fAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(Bib, 17.0f));
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(17.077711, -96.744199), 17.0f));
             }
         });
 
@@ -308,10 +192,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (mapView != null && mapView.findViewById(Integer.parseInt("1")) != null) {
             View locationButton = ((View) mapView.findViewById(Integer.parseInt("1")).getParent()).findViewById(Integer.parseInt("2"));
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) locationButton.getLayoutParams();
+
             layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, 0);
             layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
-            layoutParams.setMargins(0, 0, 30, 30);
+            layoutParams.setMargins(0, 0, 0, 0);
         }
+
         //Map Settings
         mMap.setMapType(1); //2 es satelite
         mMap.setMyLocationEnabled(true);
@@ -348,6 +234,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
 
+    }
+    private LocationItem getLocationItemFromList(LatLng position, String title) {
+        List<LocationItem> locationList = LocationItemList.getLocationList();
+        for (LocationItem item : locationList) {
+            if (item.getPosition().equals(position) && item.getTitle().equals(title)) {
+                return item;
+            }
+        }
+        return null;
     }
 
     @SuppressLint("MissingPermission")
@@ -386,4 +281,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     }
                 });
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
+            String titulo = data.getStringExtra("tituloMostrar");
+            assert titulo != null;
+            for (LocationItem item : LocationItemList.getLocationList()) {
+                if (item.getTitle().equals(titulo)) {
+                    destino = item;
+                    break;
+                }
+            }
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(destino.getPosition(), 18));
+            if (destino != null) {
+                // Buscar el marcador correspondiente y mostrar su ventana de información
+                for (Marker marker : markerList) {
+                    if (marker.getPosition().equals(destino.getPosition()) && marker.getTitle().equals(destino.getTitle())) {
+                        marker.showInfoWindow(); // Aquí se muestra la ventana de información del marcador
+                        break;
+                    }
+                }
+            }
+        }
+    }
 }
+
+
